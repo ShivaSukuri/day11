@@ -1,6 +1,6 @@
 <template>
-    <div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 to-indigo-500">
-      <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+    <div class="container flex items-center justify-center bg-gradient-to-r from-gray-500 to-indigo-200">
+      <div class="bg-white p-8 rounded shadow-md  ">
         <h1 class="text-2xl font-semibold mb-4">Register Form</h1>
   
         <label class="block mb-2 text-gray-700">Name</label>
@@ -49,6 +49,9 @@
   </script>
   
   <style lang="scss" scoped>
-  /* No specific styles here as Tailwind is handling the styling */
+.container{
+  min-height: 79vh;
+  min-width: 100vw;
+}
   </style>
   

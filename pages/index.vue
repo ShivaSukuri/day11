@@ -1,16 +1,19 @@
 <template>
-   <button id="logout" @click="logout()">Logout</button>
+ <div>
+  <img src="/shop.avif" alt="shop image" class="shop">
     <div class="home-container">
      
       <div v-for="product of products" :key="product.id" class="product-item p-4 bg-white rounded-md shadow-lg">
         <p class="font-bold">{{ product.title }}</p>
-        <img :src="product.image" alt="Product Image" class="product-image h-40 object-contain mx-auto my-4">
-        <p class="price">{{ product.price }}</p>
+        <img :src="product.image" alt="Product Image" class="product-image h-40 object-contain ">
+        <p class="price">Price:${{ product.price }}</p>
+        <button class="b-red" @click="view(product)">View</button><br>
         <button id="add" @click="addToCart(product)" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
           Add to Cart
         </button>
       </div>
     </div>
+  </div>
   </template>
   
   <script setup>
@@ -18,21 +21,24 @@
     middleware:["auth"]
   })
     const { data: products } = await useFetch('https://fakestoreapi.com/products');
+    const { logout }=useNuxtApp();
     const userlogged=userLogeedIn();
+    let item=product();
+
     const status=logInStatus();
     const user=users();
-    console.log(userlogged.value)
     const addToCart=(product)=>{
       userlogged.value.cart.push(product);
-      console.log(userlogged.value)
     }
-    const logout=()=>{
-      userlogged.value=null;
-      status.value=false;
-      console.log(userlogged.value+" "+status.value)
-      if(status.value===false){
-        navigateTo('/login')
-      }
+    const logout1=()=>{
+      logout();
+    }
+    const view=(product)=>{
+    
+      item.push(product);
+     console.log(item)
+      navigateTo('/product');
+     
     }
   </script>
   
@@ -55,6 +61,12 @@
     }
     #add{
      text-align: center
+    }
+    .shop{
+      width: 90vw;
+      height: 400px;
+      margin-left: 5vw;
+      margin-top: 5px;
     }
   
   </style>

@@ -9,5 +9,6 @@ export const users=()=>useState(()=>[
     }
 ])
 export const logInStatus=()=>useState(()=>false);
-export const userLogeedIn=()=>useState(()=>{})
-export const id=()=>useState(()=>2)
+export const userLogeedIn=()=>useState(()=>"")
+export const id=()=>useState(()=>2);
+export const product=(()=>[]);

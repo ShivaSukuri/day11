@@ -15,8 +15,7 @@ export default defineNuxtRouteMiddleware((to,from)=>{
     if(status.value===false && to.path!=="/login"){
         return navigateTo("/login")
     }
-    else if(status.value===true && to.path==="/login"){
-        return navigateTo("/");
-    }
+    
+   
    
 })
