@@ -34,7 +34,8 @@
         email: emailInput.value,
         password: passwordInput.value,
         status:false,
-        cart:[]
+        cart:[],
+        whishlist:[]
       };
       user.value.push(user1);
       console.log(users.value)

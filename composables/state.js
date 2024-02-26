@@ -5,10 +5,11 @@ export const users=()=>useState(()=>[
         email:"12345",
         password:"12345",
         status:false,
-        cart:[]
+        cart:[],
+        whishlist:[]
     }
 ])
 export const logInStatus=()=>useState(()=>false);
 export const userLogeedIn=()=>useState(()=>"")
 export const id=()=>useState(()=>2);
-export const product=(()=>[]);
+export const product=()=>useState(()=>[])
