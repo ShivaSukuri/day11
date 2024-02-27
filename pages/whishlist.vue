@@ -29,9 +29,7 @@ definePageMeta({
     middleware:["auth"]
 })
    const user=userLogeedIn();
-   console.log(user.value)
   const products=user.value.whishlist;
-  console.log(products)
 
   const addToCart=(item)=>{
     user.value.cart.push(item);

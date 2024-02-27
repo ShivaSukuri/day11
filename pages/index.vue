@@ -11,6 +11,15 @@
         </select>
         
   </div>
+  <!-- <div>
+        <select name="input" id="inputFilter" v-model="menFilter"  class="py-3 px-4 pe-9 block  border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+        <option value="">All</option>
+        <option value="shirts">shirts</option>
+        <option value="backpack">backpacks</option>
+        <option value="jacket">jackets</option>
+        </select>
+        
+  </div> -->
     <div class="home-container">
      
       <div v-for="product of filteredProducts" :key="product.id" class="product-item p-4 bg-white rounded-md shadow-lg">
@@ -35,6 +44,7 @@
     const categoryInput=ref('');
     const status=logInStatus();
     const user=users();
+    const menFilter=ref('');
     const addToCart=(product)=>{
       userlogged.value.cart.push(product);
     }
@@ -47,13 +57,11 @@
       navigateTo('/product');
     }
     const filteredProducts=computed((input)=>{
-      console.log(input)
       if(categoryInput.value===""){
         return products.value;
       }
       else{
-        return products.value.filter(prod=>prod.category===categoryInput.value);
-
+        return products.value.filter(prod=> prod.category===categoryInput.value)
       }
     })
   </script>

@@ -11,7 +11,7 @@
 // })
 export default defineNuxtRouteMiddleware((to,from)=>{
     const status=logInStatus();
-    console.log(status.value)
+
     if(status.value===false && to.path!=="/login"){
         return navigateTo("/login")
     }

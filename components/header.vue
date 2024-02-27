@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-700 text-white p-4">
+    <div class=" bg-gray-700 text-white p-4">
       <nav class="flex items-center justify-between" >
       <div><img src="/logo1.png" alt="" class="logo"></div>
         <div class="nill"></div>
@@ -19,7 +19,6 @@
   
   <script setup>
   const status=logInStatus();
-  console.log(status)
   </script>
   
   <style lang="scss" scoped>
@@ -31,7 +30,8 @@
   width: 100px;
  }
  .nill{
-  width: 35vw;
+  width: 40vw;
  }
+
   </style>
   

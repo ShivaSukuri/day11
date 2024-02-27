@@ -11,20 +11,20 @@
 
       <button @click="login" class="bg-blue-500 text-white p-2 rounded mr-2">Login</button>
       <button @click="register" class="bg-purple-500 text-white p-2 rounded">Register</button>
+      <p class="text-red-900 mt-3" v-if="error">Enter valid credentials</p>
     </div>
   </div>
 </template>
 
 <script setup>
-// definePageMeta({
-//   middleware:["logout"]
-// })
+
 const user = users();
 const passUser = userLogeedIn();
 const logStatus = logInStatus();
 const emailInput = ref('');
 const passwordInput = ref('');
 let userFound=false;
+const error=ref(false);
 const setTime=ref(false)
 const login = () => {
   for (let x of user.value) {
@@ -37,7 +37,7 @@ const login = () => {
     }
   }
   if(userFound==false){
-    alert("Enter a valid credentials")
+    error.value=true;
   }
 };
 
@@ -47,7 +47,7 @@ const register = () => {
 </script>
 
 <style lang="scss" scoped>
-/* Ensure the container takes up the full viewport height */
+
 .min-h-screen {
   min-height: 100vh;
 }
