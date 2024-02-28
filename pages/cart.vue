@@ -13,7 +13,9 @@
                           <p class="text-lg font-semibold">{{ product.title }}</p>
                           <p class="mt-4">{{ product.description }}</p>
                           <p class="text-gray-600 mt-4" ><b>$:{{ product.price }}</b></p>
-                          <button @click="remove(product)" class="mt-4 bg-red-500 text-white px-2 py-1">Remove</button>
+                          <p class="mb-5">rating :{{ product.rating.rate }}/{{ product.rating.count }}</p>
+                          <button @click="remove(product)" class="mt-5 ml-5 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300">Remove</button>
+                          <!-- <button id="add" @click="addToWhishlist()" class=" mt-5 ml-5 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Add to whishlist</button> -->
                     </div>
                   </div>
                 </div>

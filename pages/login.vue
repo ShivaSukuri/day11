@@ -8,10 +8,11 @@
 
       <label class="block mb-2 text-gray-700">Password</label>
       <input type="password" v-model="passwordInput" class="w-full border p-2 mb-4 rounded" />
-
+      <p class="text-red-900 " v-if="error">Enter valid credentials</p>
       <button @click="login" class="bg-blue-500 text-white p-2 rounded mr-2">Login</button>
       <button @click="register" class="bg-purple-500 text-white p-2 rounded">Register</button>
-      <p class="text-red-900 mt-3" v-if="error">Enter valid credentials</p>
+      <p v-if="userFound" class="text-green-900">user login successfull</p>
+     
     </div>
   </div>
 </template>
@@ -23,7 +24,7 @@ const passUser = userLogeedIn();
 const logStatus = logInStatus();
 const emailInput = ref('');
 const passwordInput = ref('');
-let userFound=false;
+const userFound=ref(false);
 const error=ref(false);
 const setTime=ref(false)
 const login = () => {
@@ -32,11 +33,14 @@ const login = () => {
       x.status = true;
       logStatus.value = true;
       passUser.value = x;
-      userFound=true;
-      navigateTo('/');
+      error.value=false;
+      userFound.value=true;
+      setTimeout(function(){
+        navigateTo('/');
+      },1000)
     }
   }
-  if(userFound==false){
+  if(userFound.value==false){
     error.value=true;
   }
 };
@@ -58,5 +62,6 @@ const register = () => {
 }
 #login{
   height: 79.5vh;
+
 }
 </style>
